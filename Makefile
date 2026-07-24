@@ -1,11 +1,11 @@
 # SERVICE é o nome do serviço no docker-compose.yml (fixo, não muda por projeto).
 # O nome do CONTAINER/IMAGEM, esse sim, vem de PROJECT_NAME (definido no .env
 # pelo install.sh, com o nome do projeto escolhido pelo usuário).
-SERVICE := flutter-dev
+SERVICE := watch-tower
 
 # Carrega PROJECT_NAME e PLATFORMS do .env gerado pelo install.sh, se existir.
 -include .env
-PROJECT_NAME ?= flutter-dev
+PROJECT_NAME ?= watch-tower
 
 # PLATFORMS pode ser sobrescrito: make create PLATFORMS=android,web
 PLATFORMS ?= android,linux

@@ -84,7 +84,7 @@ sleep 4
 
 # Flutter create
 info "Executando flutter create..."
-docker compose exec flutter-dev flutter create --platforms="${PLATFORMS}" --project-name "${DART_PROJECT_NAME}" .
+docker compose exec watch-tower flutter create --platforms="${PLATFORMS}" --project-name "${DART_PROJECT_NAME}" .
 
 # Aplicar template
 info "Aplicando estrutura do template (com src/)..."
@@ -96,19 +96,19 @@ cp -r template/integration_test/* integration_test/ 2>/dev/null || true
 
 # Dependências
 info "Instalando dependências..."
-docker compose exec flutter-dev flutter pub add \
+docker compose exec watch-tower flutter pub add \
   flutter_riverpod riverpod riverpod_annotation \
   go_router \
   flutter_native_splash flutter_launcher_icons
 
-docker compose exec flutter-dev flutter pub add --dev \
+docker compose exec watch-tower flutter pub add --dev \
   build_runner riverpod_generator mocktail very_good_analysis
 
-docker compose exec flutter-dev flutter pub add 'dev:integration_test:{"sdk":"flutter"}'
+docker compose exec watch-tower flutter pub add 'dev:integration_test:{"sdk":"flutter"}'
 
 # Build runner
 info "Gerando código..."
-docker compose exec flutter-dev flutter pub run build_runner build --delete-conflicting-outputs || true
+docker compose exec watch-tower flutter pub run build_runner build --delete-conflicting-outputs || true
 
 # Finalização
 info "Limpando arquivos temporários..."

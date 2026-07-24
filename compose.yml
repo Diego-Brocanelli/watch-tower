@@ -1,18 +1,18 @@
 # Nome do projeto Compose = nome do projeto definido na instalação (install.sh).
 # Isso garante que "docker compose ls", nomes padrão de rede e afins também
 # fiquem isolados por projeto, e não só o container/imagem abaixo.
-name: ${PROJECT_NAME:-flutter-dev}
+name: ${PROJECT_NAME:-watch-tower}
 
 services:
-  flutter-dev:
+  watch-tower:
     build:
       context: .
       dockerfile: Dockerfile
       args:
         USER_ID: ${UID:-1000}
         GROUP_ID: ${GID:-1000}
-    image: ${PROJECT_NAME:-flutter-dev}:latest
-    container_name: ${PROJECT_NAME:-flutter-dev}
+    image: ${PROJECT_NAME:-watch-tower}:latest
+    container_name: ${PROJECT_NAME:-watch-tower}
     # network_mode host simplifica X11 (GUI Linux) e adb (Android) no Fedora
     network_mode: host
     # privileged é necessário para o container enxergar dispositivos USB (adb)

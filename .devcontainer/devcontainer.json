@@ -6,7 +6,7 @@
   // gerado pelo install.sh (PROJECT_NAME/PLATFORMS) é lido normalmente,
   // pois o Docker Compose CLI procura o .env na mesma pasta do compose.yml.
   "dockerComposeFile": ["../compose.yml"],
-  "service": "flutter-dev",
+  "service": "watch-tower",
   "workspaceFolder": "/app",
 
   // Não sobrescreve o CMD/entrypoint definidos no compose.yml/Dockerfile.
